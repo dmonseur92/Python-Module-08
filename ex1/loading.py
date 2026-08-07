@@ -1,7 +1,7 @@
 import importlib
 
 
-def validate_dep() -> bool:
+def validate_packages() -> bool:
     packages = [
         "pandas",
         "numpy",
@@ -32,7 +32,6 @@ def process_matrix() -> None:
     print("Processing 1000 data points...")
 
     data = np.random.rand(1000)
-
     df = pd.DataFrame(data, columns=["matrix_data"])
 
     print("Generating visualization...")
@@ -47,7 +46,7 @@ def process_matrix() -> None:
 def enter_the_matrix() -> None:
     print("LOADING STATUS: Loading programs...")
 
-    if not validate_dep():
+    if not validate_packages():
         return
 
     process_matrix()
