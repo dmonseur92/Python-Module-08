@@ -1,4 +1,7 @@
 import sys
+import os
+import site
+
 
 def check_matrix() -> None:
     if sys.prefix == sys.base_prefix:
@@ -16,13 +19,14 @@ def check_matrix() -> None:
     else:
         print("MATRIX STATUS: Welcome to the construct\n")
         print(f"Current Python: {sys.executable}")
-        print(f"Current Python: {sys.executable}")
-        print(f"Environment Path: {sys.executable}")
+        print(f"Virtual Environment: {os.path.basename(sys.prefix)}")
+        print(f"Environment Path: {sys.prefix}\n")
         print("SUCCESS: You're in an isolated environment!")
         print("Safe to install packages without affecting")
         print("the global system.\n")
         print("Package installation path:")
-        print("/path/to/matrix_env/lib/python3.11/site-packages")
+        print(site.getsitepackages()[0])
 
-if __name__ == "__main__ ":
+
+if __name__ == "__main__":
     check_matrix()
