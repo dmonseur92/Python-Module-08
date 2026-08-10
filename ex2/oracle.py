@@ -1,7 +1,6 @@
 import os
 
 
-
 def oracle() -> None:
     env_variables = [
         "MATRIX_MODE",
@@ -14,7 +13,10 @@ def oracle() -> None:
     try:
         from dotenv import load_dotenv
     except ImportError:
-        print("Missing dependencies please use pip install -r requirements.txt")
+        print("Missing dependencies please use "
+              "pip install -r requirements.txt")
+        return
+
     load_dotenv()
     mode = os.getenv("MATRIX_MODE")
 
